@@ -33,71 +33,81 @@ body {
   background: #a44e00; /* color of the thumb when active */
 }
 
-/* Your existing styles */
-
 .app {
-  min-width: 100vw;
+  min-width: 60vw;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 20px; /* Added padding for smaller screens */
 }
+
 .lpheader {
   font-weight: 300;
   font-size: 1rem;
   margin-bottom: 0.5rem;
-  
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
+  .lpheader {
     font-size: 3rem;
   }
 }
-header { 
+
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1rem;
   text-align: center;
-  
-  
+}
 
-  h2 {
-    font-weight: 400;
+header h2 {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  header h2 {
     font-size: 1rem;
-    margin-bottom: 0.5rem;
-    
-    @media (min-width: 768px) {
-      font-size: 3rem;
-    }
-  }
-  
-  p {
-    color: #94a3b8;
-  }
-  span {
-    color: #e66701;
   }
 }
+
+header p {
+  color: #94a3b8;
+}
+
+header span {
+  color: #e66701;
+}
+
 .lp {
   color: #e66701;
 }
-.landing{
-  width: 50rem;
-  max-width: 110vw;
+
+.landing {
+  width: 100%;
+  max-width: 50rem;
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
   position: relative;
   padding: 1.5rem 0;
   overflow: hidden;
+  text-align: justify;
 }
+
 .launchpad-logo {
-  width: 450px; /* Adjust as needed */
+  width: 100%;
+  max-width: 450px; /* Adjust as needed */
   height: auto;
 }
+
 .tag-list {
-  width: 50rem;
-  max-width: 110vw;
+  width: 100%;
+  max-width: 50rem;
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
@@ -107,16 +117,14 @@ header {
   overflow: hidden;
 }
 
-.loop-slider {
-  .inner {
-    display: flex;
-    width: fit-content;
-    animation-name: loop;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: var(--direction);
-    animation-duration: var(--duration);
-  }
+.loop-slider .inner {
+  display: flex;
+  width: fit-content;
+  animation-name: loop;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--direction);
+  animation-duration: var(--duration);
 }
 
 .tag {
@@ -133,11 +141,11 @@ header {
     0 0.1rem 0.2rem rgb(0 0 0 / 20%),
     0 0.1rem 0.5rem rgb(0 0 0 / 30%),
     0 0.2rem 1.5rem rgb(0 0 0 / 40%);
-  
-  span {
-    font-size: 1.2rem;
-    color: #e66701;
-  }
+}
+
+.tag span {
+  font-size: 1.2rem;
+  color: #e66701;
 }
 
 .fade {
@@ -176,9 +184,10 @@ header {
 
 .register-button button:hover {
   background-color: #e66701; /* Fills with orange on hover */
-  color: #000000; /* Text color changes to white on hover */
+  color: #000000; /* Text color changes to black on hover */
   border-color: #e66701; /* Orange border color on hover */
 }
+
 .step-boxes {
   display: flex;
   flex-direction: column; /* Display boxes vertically */
@@ -188,7 +197,8 @@ header {
 
 .step-box {
   position: relative;
-  width: 600px; /* Adjust size as needed */
+  width: 180%; /* Make width responsive */
+  max-width: 600px; /* Adjust size as needed */
   height: 75px; /* Adjust size as needed */
   border: 2px solid #e66701;
   margin: 10px 0; /* Adjust spacing as needed */
@@ -199,8 +209,7 @@ header {
   opacity: 0; /* Initially hidden */
   transition: opacity 0.5s ease-in-out; /* Smooth transition */
   border-radius: 14px;
-
-
+  text-align: center;
 }
 
 .step-box.visible {
@@ -216,7 +225,7 @@ header {
 }
 
 .step-box:hover::after {
-
+  content: attr(data-hover); /* Change content on hover */
   color: #e66701;
 }
 
@@ -228,3 +237,51 @@ header {
 .fade-in.visible {
   opacity: 1;
 }
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .app{
+    width: auto;
+    padding: 0;
+    overflow: hidden;
+  }
+  .lpheader {
+    font-size: 1.5rem; /* Smaller header font size */
+  }
+
+  .h2 {
+    font-size: 1.5rem; /* Smaller subheader font size */
+    text-align: center;
+    
+  }
+  .landing{
+    width: 100%;
+  }
+  .updts{
+    text-align: center;
+  }
+  .launchpad-logo {
+    width: 100%; /* Full width for logo on smaller screens */
+    max-width: 300px; /* Adjust as needed */
+  }
+
+  .register-button button {
+    padding: 8px 16px; /* Smaller button padding */
+    font-size: 14px; /* Smaller button font size */
+  }
+
+  .step-box {
+    width: 130%; /* Full width for step boxes on smaller screens */
+    font-size: 1rem;
+    text-align: center;
+  }
+  .tag-list {
+    width: 100%;
+    max-width: 26rem;
+  }
+  .about-us-section{
+    width: 90%;
+    
+  }
+}
+

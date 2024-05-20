@@ -93,10 +93,10 @@ const AboutUsSection = () => (
 
 const LaunchpadUpdatesSection = () => (
   <section className="launchpad-updates-section">
-    <h2>
+    <h2 className="updts">
       <span className="lp">Launchpad</span> Updates
     </h2>
-    <p>Here is a quick glance at the latest updates!</p>
+    <p className="updts">Here is a quick glance at the latest updates!</p>
     <div className="tag-list">
       {[...new Array(ROWS)].map((_, i) => (
         <InfiniteLoopSlider
